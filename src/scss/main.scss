@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,300&display=swap');
+
+$blue: hsl(223, 87%, 63%);
+$pale-blue: hsl(223, 100%, 88%);
+$light-red: hsl(354, 100%, 66%);
+
+$gray: hsl(0, 0%, 59%);
+$very-dark-blue: hsl(209, 33%, 12%);
+
+html {
+    font-size: 1.25rem;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    justify-content: center;
+
+    @media (min-width: 720px) {
+        margin-inline: auto;
+        width: 50vw;
+    }
+}
+
+header {
+    display: grid;
+    place-items: center;
+    
+    @media (min-width: 720px) {
+        min-height: 15vh;
+    }
+}
+
+.header__logo {
+    width: calc(3vw + 1.5rem);
+
+    @media (min-width: 720px) {
+        width: auto;
+    }
+}
+
+.hero {
+    display: grid;
+    justify-items: center;
+
+    padding-inline: 1.5rem;
+
+    &__title {
+        font-size: clamp(1.25rem, 2vw + .25rem, 2rem);
+        font-weight: 300;
+        color: $gray;
+        margin-block: .5rem;
+        
+        &--bold {
+            font-weight: 700;
+            color: $very-dark-blue;
+
+        }
+    }
+
+    &__desc {
+        margin-block: 0;
+        font-size: .7rem;
+        color: $very-dark-blue;
+    }
+
+    &__form {
+        width: 90%;
+
+        @media (min-width: 720px) {
+            margin-block: 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            column-gap: 1rem;
+
+
+        }
+    }
+
+    &__input,
+    &__btn {
+        box-sizing: border-box;
+        font-size: .6rem;
+        width: 100%;
+        border-radius: 100vw;
+        height: 2rem;
+    }
+    
+    &__input {
+        padding-inline-start: 1.5rem;
+        margin-bottom: 0;
+        border: 1px solid hsl(223, 77%, 66%);
+    
+
+        &--error {
+            border: 1px solid $light-red;
+        }
+    }
+
+    &__input::placeholder {
+        color: $gray;
+    }
+
+    &__alert {
+        text-align: center;
+        font-weight: 300;
+        font-size: .5rem;
+        font-style: italic;
+        color: $light-red;
+
+        @media (min-width: 720px) {
+            padding-inline-start: 1.5rem;
+            text-align: left;
+
+        }
+
+        &--hide {
+            display: none;
+        }
+    }
+    
+    &__btn {
+        margin-top: .5rem;
+        font-weight: 600;
+        border: none;
+        background: $blue;
+        color: white;
+        box-shadow: 1px 3px 5px 2px hsla(223, 100%, 88%, 0.804);
+
+
+        &:hover, 
+        &:active,
+        &:focus {
+            cursor: pointer;
+            background: hsl(223, 77%, 66%);;
+        }
+
+        @media (min-width: 720px) {
+            width: 7rem;
+            margin-top: 0;
+        }
+
+    }
+
+    &__img {
+        margin-block: auto;
+        max-width: 100%;
+
+        @media (min-width: 720px) {
+
+            height: 100%;
+        }
+    }
+}
+
+.footer {
+    align-self: end;
+    margin-block: 2rem;
+
+    &__icons {
+        list-style: none;
+        padding-inline-start: 0;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &__socials {
+        display: inline-block;
+        text-align: center;
+        color: $blue;
+        line-height: 1rem;
+        height: 1rem;
+        width: 1rem;
+        padding: .5rem;
+        border-radius: 50%;
+        border: 1px solid $pale-blue;
+        vertical-align: middle;
+
+        transition: all ease-in 400ms;
+        
+        &:hover,
+        &:active,
+        &:focus {
+            cursor: pointer;
+            border: transparent;
+            color: white;
+            background: $blue;
+        }
+    }
+
+    &__credits {
+        text-align: center;
+        font-size: .5rem;
+        color: $gray;
+    }
+
+    ul > li + li {
+        margin-left: .5rem;
+    }
+}
